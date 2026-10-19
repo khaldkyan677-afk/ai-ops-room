@@ -1,0 +1,180 @@
+:root {
+    --bg-dark: #121212;
+    --bg-panel: #1e1e1e;
+    --bg-input: #2d2d2d;
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --accent: #3b82f6;
+    --success: #10b981;
+    --danger: #ef4444;
+    --border: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* الرأس */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: var(--bg-panel);
+    border-bottom: 1px solid var(--border);
+}
+
+header h1 { font-size: 1.2rem; }
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header-actions input {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-input);
+    color: white;
+}
+
+/* الجسم الرئيسي */
+main {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* قسم المهام */
+.tasks-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    min-height: 300px;
+}
+
+.task-column {
+    background-color: var(--bg-panel);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+}
+
+.task-column h2 {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-main);
+}
+
+.task-list {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#newTaskInput {
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-input);
+    color: white;
+}
+
+/* قسم الأدوات */
+.tools-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.tool-box {
+    background-color: var(--bg-panel);
+    border-radius: 8px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: 1px solid var(--border);
+}
+
+.tool-box h3 { font-size: 1rem; }
+
+.tool-box input, .tool-box textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background-color: var(--bg-input);
+    color: white;
+    resize: vertical;
+}
+
+.tool-box textarea { min-height: 100px; font-family: monospace; }
+
+.tool-box iframe {
+    width: 100%;
+    height: 150px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background-color: white;
+}
+
+/* الأزرار */
+button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: var(--accent);
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: opacity 0.2s;
+}
+
+button:hover { opacity: 0.8; }
+
+.btn-group {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-group button { flex: 1; }
+
+/* الشريط السفلي */
+footer {
+    background-color: var(--bg-panel);
+    padding: 10px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* التجاوب مع الشاشات الصغيرة */
+@media (max-width: 900px) {
+    .tasks-section { grid-template-columns: 1fr; }
+    .tools-section { grid-template-columns: 1fr; }
+    header { flex-direction: column; gap: 10px; }
+}
