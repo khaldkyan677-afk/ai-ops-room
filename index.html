@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 AI Operations Room</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- الرأس (Header) -->
+    <header>
+        <h1>🚀 غرفة العمليات الذكية</h1>
+        <div class="header-actions">
+            <input type="text" id="searchInput" placeholder="🔍 بحث في المهام...">
+            <button id="exportBtn">📤 تصدير</button>
+            <button id="importBtn">📥 استيراد</button>
+        </div>
+    </header>
+
+    <!-- الجسم (Main) -->
+    <main>
+        <!-- قسم المهام -->
+        <section class="tasks-section">
+            <div class="task-column">
+                <h2>⏳ مهام معلقة (<span id="pendingCount">0</span>)</h2>
+                <div id="pendingList" class="task-list"></div>
+                <input type="text" id="newTaskInput" placeholder="أضف مهمة جديدة واضغط Enter...">
+            </div>
+            <div class="task-column">
+                <h2>✅ مهام منجزة (<span id="completedCount">0</span>)</h2>
+                <div id="completedList" class="task-list"></div>
+            </div>
+        </section>
+
+        <!-- قسم الأدوات (معاينة، أخطاء، DeepSeek) -->
+        <section class="tools-section">
+            <div class="tool-box">
+                <h3>🌐 معاينة المشروع</h3>
+                <input type="url" id="previewUrlInput" placeholder="https://...">
+                <iframe id="previewFrame" src="about:blank"></iframe>
+                <button id="openNewTabBtn">↗️ فتح في تبويب جديد</button>
+            </div>
+
+            <div class="tool-box">
+                <h3>🐛 مربع الأخطاء</h3>
+                <textarea id="errorBox" placeholder="الصق الخطأ هنا..."></textarea>
+                <div class="btn-group">
+                    <button id="copyErrorBtn">📋 نسخ الخطأ</button>
+                    <button id="saveErrorBtn">💾 حفظ في السجل</button>
+                </div>
+            </div>
+
+            <div class="tool-box">
+                <h3>🤖 مساعد DeepSeek</h3>
+                <textarea id="deepseekBox" placeholder="اطلب من DeepSeek هنا..."></textarea>
+                <div class="btn-group">
+                    <button id="copyAiBtn">📋 نسخ الطلب</button>
+                    <button id="openAiBtn">🚀 فتح DeepSeek</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- الشريط السفلي (Footer) -->
+    <footer>
+        <span id="statusBar">⏳ 0 معلقة | ✅ 0 منجزة | 💾 آخر حفظ: -</span>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
