@@ -71,3 +71,51 @@ window.deleteTask = function(index) {
 
 // 8. تشغيل العرض عند فتح الصفحة لأول مرة
 renderTasks();
+
+// ==========================================
+// 9. تفعيل المعاينة (Iframe)
+// ==========================================
+const previewUrlInput = document.getElementById('previewUrlInput');
+const previewFrame = document.getElementById('previewFrame');
+const openNewTabBtn = document.getElementById('openNewTabBtn');
+
+previewUrlInput.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter' && previewUrlInput.value.trim() !== '') {
+        previewFrame.src = previewUrlInput.value.trim();
+    }
+});
+
+openNewTabBtn.addEventListener('click', function() {
+    if (previewUrlInput.value.trim() !== '') {
+        window.open(previewUrlInput.value.trim(), '_blank');
+    }
+});
+
+// ==========================================
+// 10. أزرار النسخ (Clipboard)
+// ==========================================
+const copyErrorBtn = document.getElementById('copyErrorBtn');
+const errorBox = document.getElementById('errorBox');
+const copyAiBtn = document.getElementById('copyAiBtn');
+const deepseekBox = document.getElementById('deepseekBox');
+const openAiBtn = document.getElementById('openAiBtn');
+
+// دالة مساعدة للنسخ
+function copyToClipboard(text) {
+    if (text.trim() === '') return;
+    navigator.clipboard.writeText(text).then(() => {
+        alert('✅ تم النسخ بنجاح!'); // تنبيه بسيط للمستخدم
+    });
+}
+
+copyErrorBtn.addEventListener('click', () => {
+    copyToClipboard(errorBox.value);
+});
+
+copyAiBtn.addEventListener('click', () => {
+    copyToClipboard(deepseekBox.value);
+});
+
+openAiBtn.addEventListener('click', () => {
+    window.open('https://chat.deepseek.com', '_blank');
+});
